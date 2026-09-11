@@ -46,9 +46,6 @@ type countSubscribeEvent struct {
 // - Dynamically installing a new CRD (carrots.vegetables.cattle.io)
 // - Creating carrot resources
 // - Asserting websocket receives COUNT update with new resource type
-//
-// Expected behavior BEFORE fix: Test FAILS - timeout waiting for websocket event
-// Expected behavior AFTER fix: Test PASSES - websocket receives update
 func (i *IntegrationSuite) TestCountWatchReceivesNewCRDResources() {
 	ctx, cancel := context.WithTimeout(i.T().Context(), 60*time.Second)
 	defer cancel()
